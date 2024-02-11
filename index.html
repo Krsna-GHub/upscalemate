@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Which career field is right for you?</h2>
+
+    <h3>Question 1: Do you prefer working with people or working with data?</h3>
+    <input type="text" id="question1Input" placeholder="Enter your response...">
+
+    <h3>Question 2: Do you prefer working in a structured environment or a creative environment?</h3>
+    <input type="text" id="question2Input" placeholder="Enter your response...">
+
+    <h3>Question 3: Do you prefer working with technology or working with people?</h3>
+    <input type="text" id="question3Input" placeholder="Enter your response...">
+
+    <button onclick="submitAnswers()">Submit</button>
+
+    <script>
+        function submitAnswers() {
+            // Get user inputs
+            var question1Answer = document.getElementById('question1Input').value;
+            var question2Answer = document.getElementById('question2Input').value;
+            var question3Answer = document.getElementById('question3Input').value;
+
+            // Determine career field based on user answers
+            var careerField;
+            if (question1Answer.toLowerCase() === 'people' && question2Answer.toLowerCase() === 'structured' && question3Answer.toLowerCase() === 'people') {
+                careerField = 'Management';
+            } else if (question1Answer.toLowerCase() === 'data' && question2Answer.toLowerCase() === 'creative' && question3Answer.toLowerCase() === 'technology') {
+                careerField = 'Data Science';
+            } else if (question1Answer.toLowerCase() === 'people' && question2Answer.toLowerCase() === 'either' && question3Answer.toLowerCase() === 'technology') {
+                careerField = 'Cybersecurity';
+            } else {
+                careerField = 'Other';    
+            }
+
+            // Redirect to the career field page
+            window.location.href = careerField + '.html';
+        }
+    </script>
+</body>
+</html>
